@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title Streaming Statistics
+    link(rel="stylesheet", href="/style.css")
+
+  body
+
+    include partials/header
+
+    h1 Streaming Service Statistics
+
+    #stats
+      each service in stats
+        .statBox
+          h2= service.name
+          p Total Movies Ordered: #{service.totalMovies}
+          p Total Revenue: $#{service.totalRevenue}
+          p Average Order: $#{service.avgOrder}
+          p Most Popular Movie: #{service.mostPopular}

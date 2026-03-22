@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title Admin Services
+    link(rel="stylesheet", href="/style.css")
+
+  body
+
+    include partials/header
+
+    h1 Streaming Services
+
+    #serviceList
+      each service in services
+        div.serviceRow
+          a(href="/services/" + service.id)= service.name
+          img.remove(src="/unselected.svg" data-id=service.id width="20")
+
+    hr
+
+    h2 Add Service
+
+    input#newServiceName(type="text" placeholder="Service name")
+    button#addServiceBtn Add Service
+
+    script(src="/admin.js")

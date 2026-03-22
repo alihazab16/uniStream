@@ -1,0 +1,91 @@
+doctype html
+html
+  head
+    title Service Info
+  body
+
+    include partials/header
+
+    h1= service.name
+
+  h2 Edit Service Info
+
+  div
+    label Name:
+    input(type="text", id="name", value=service.name)
+
+  div
+    label Service Fee:
+    input(type="text", id="fee", value=service.serviceFee)
+
+  div
+    label Minimum Order:
+    input(type="text", id="min", value=service.minOrder)
+
+  button(onclick="saveChanges()") Save Changes
+
+  hr
+
+  h2 Add Genre
+
+  input(type="text", id="newGenre")
+  button(onclick="addGenre()") Add Genre
+
+  hr
+
+  h2 Add Movie
+
+  div
+    label Genre:
+    select(id="genreSelect")
+      each g in Object.keys(service.genres)
+        option(value=g)= g
+
+  div
+    label Title:
+    input(type="text", id="title")
+
+  div
+    label Description:
+    input(type="text", id="description")
+
+  div
+    label Year:
+    input(type="text", id="year")
+
+  div
+    label Price:
+    input(type="text", id="price")
+
+  button(onclick="addMovie()") Add Movie
+
+  hr
+
+  h2 Movies
+
+  each genre in Object.keys(service.genres)
+    h3= genre
+
+    table(border="1")
+      tr
+        th ID
+        th Title
+        th Description
+        th Year
+        th Price
+        th Remove
+
+      each m in service.genres[genre]
+        tr
+          td= m.id
+          td= m.title
+          td= m.description
+          td= m.year
+          td= m.price
+          td
+            img(src="/remove.svg", width="20", onclick=`deleteMovie(${m.id})`)
+
+  script.
+    const serviceID = !{service.id};
+
+  script(src="/serviceInfo.js")

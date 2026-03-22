@@ -1,0 +1,41 @@
+doctype html
+html
+  head
+    title Admin
+  body
+
+    include partials/header
+
+    h1 Admin Page
+
+    h2 Add Service
+
+    div
+      label Name:
+      input(type="text", id="newServiceName")
+
+    button(id="addServiceBtn") Add Service
+
+    hr
+
+    h2 Existing Services
+
+h2 Existing Services
+
+table(border="1")
+  tr
+    th ID
+    th Name
+    th Edit
+    th Remove
+
+  each s in services
+    tr
+      td= s.id
+      td= s.name
+      td
+        a(href="/services/" + s.id) Edit
+      td
+        img.remove(src="/remove.svg", width="20", data-id=s.id)
+
+    script(src="/admin.js")

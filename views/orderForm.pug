@@ -1,0 +1,42 @@
+doctype html
+html
+  head
+    title Order Movies
+    link(rel="stylesheet", href="/style.css")
+
+  body
+
+    include partials/header
+
+    h1 Order Movies
+
+    .dropdown
+      select#serviceSelect
+        option(value="" disabled selected) Select a Service
+
+    #serviceInfo
+
+    #genreBar
+
+    h2#moviesTitle Movies
+
+    #mainLayout
+      #moviesColumn
+        #movieList
+      #orderColumn
+        #orderSummary
+        #feeSummary
+        #totalsSummary
+        #minMessages
+        button#submitOrder(style="display:none") Submit Order
+
+    // confirmation popup
+    #confirmBox(style="display:none")
+      p#confirmText
+      button#confirmYes Yes
+      button#confirmNo No
+
+    script.
+      const streamingServices = !{JSON.stringify(services)}
+
+    script(src="/web.js")

@@ -1,0 +1,23 @@
+header
+  .nav
+    img.logo(src="/logo.svg")
+
+    a(
+      href="/"
+      class=(page === "home" ? "active" : "")
+    )  Home
+
+    a(
+      href="/order"
+      class=(page === "order" ? "active" : "")
+    )  Order Form
+
+    a(
+      href="/stats"
+      class=(page === "stats" ? "active" : "")
+    )  Statistics
+
+    a(
+  href="/services"
+  class=(page === "admin" ? "active" : "")
+)  Admin
